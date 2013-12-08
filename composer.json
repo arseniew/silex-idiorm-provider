@@ -1,0 +1,23 @@
+{
+    "type": "library",
+    "name": "arseniew/silex-idiorm-provider",
+    "description": "Silex service provider for Idiorm",
+    "homepage": "http://github.com/arseniew/silex-idiorm-provider",
+    "licence": "MIT",
+    "keywords": ["silex", "service provider", "idiorm"],
+    "authors": [
+        {
+            "name": "Marcin Batkowski",
+            "email": "arseniew@gmail.com"
+        }
+    ],
+    "require": {
+        "j4mie/idiorm": "~v1"
+    },
+    "autoload": {
+        "psr-0": {
+            "Arseniew\\": "src/"
+        }
+    }
+    
+}
