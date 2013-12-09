@@ -3,7 +3,7 @@
     "name": "arseniew/silex-idiorm-provider",
     "description": "Silex service provider for Idiorm",
     "homepage": "http://github.com/arseniew/silex-idiorm-provider",
-    "licence": "MIT",
+    "license": "MIT",
     "keywords": ["silex", "service provider", "idiorm"],
     "authors": [
         {
