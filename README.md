@@ -4,7 +4,7 @@ Provider for integrating [Idiorm](https://github.com/j4mie/idiorm) with [Silex](
 
 #### Registering and configuration
 
-```
+```php
 $app->register(new \Arseniew\Silex\Provider\IdiormServiceProvider(), array(
         'idiorm.db.options' => array(
             'connection_string' => 'mysql:host=localhost;dbname=my_db',
@@ -12,7 +12,7 @@ $app->register(new \Arseniew\Silex\Provider\IdiormServiceProvider(), array(
             'password' => 'my_password',
         )
 );
-````
+```
 
 For more details on configuration array see: [Idiorm configuration options](http://idiorm.readthedocs.org/en/latest/configuration.html)
 
@@ -20,7 +20,7 @@ For more details on configuration array see: [Idiorm configuration options](http
 
 To get all records for given table:
 
-```
+```php
 $app['idiorm.db']->for_table('my_table')->findMany();
 ```
 
@@ -30,7 +30,7 @@ For more query examples see: [Idiorm querying](http://idiorm.readthedocs.org/en/
 
 To configure multiple connections use $app['idiorm.dbs.options']
 
-```
+```php
 $app['idiorm.dbs.options'] = array(
     'first_connection' => array(
         'connection_string' => 'mysql:host=localhost;dbname=my_db',
@@ -46,7 +46,7 @@ $app['idiorm.dbs.options'] = array(
 $app['idiorm.dbs.options'] Needs to be associative array, where keys will be connection names, and value will contain configuration array
 
 To use connections in controller:
-```
+```php
 $app['idiorm.dbs']['first_connection']->for_table('my_table')->findMany();
 $app['idiorm.dbs']['second_connection']->for_table('other_table')->findMany();
 ```
