@@ -2,7 +2,7 @@
 
 /**
  * Silex service provider for Idiorm
- * 
+ *
  * @author Marcin Batkowski <arseniew@gmail.com>
  */
 
@@ -33,7 +33,7 @@ class IdiormServiceProvider implements ServiceProviderInterface
                 $tmp = $app['idiorm.dbs.options'];
                 $app['idiorm.dbs.default'] = key($tmp);
             }
-            
+
             // Creating connection for each configuration
             $tmp = $app['idiorm.dbs.options'];
             foreach ($tmp as $name => $options) {
@@ -41,25 +41,25 @@ class IdiormServiceProvider implements ServiceProviderInterface
                     \ORM::configure($options);
                 }
                 \ORM::configure($options, null, $name);
-               
+
             }
-                
+
         });
 
         $app['idiorm.dbs'] = $app->share(function ($app) {
             $app['idiorm.dbs.options.initializer']();
             $dbs = new \Pimple();
-            
+
             // Configuration is already set, so we just need keys to return connection
             foreach (array_keys($app['idiorm.dbs.options']) as $connectionName) {
-                $dbs[$connectionName] = $dbs->share(function () use($connectionName) {
+                $dbs[$connectionName] = $dbs->share(function () use ($connectionName) {
                     return new \Arseniew\Silex\Service\IdiormService($connectionName);
                 });
             }
 
             return $dbs;
         });
-        
+
         $app['idiorm.db'] = $app->share(function ($app) {
             $dbs = $app['idiorm.dbs'];
 
@@ -72,4 +72,3 @@ class IdiormServiceProvider implements ServiceProviderInterface
     {
     }
 }
-

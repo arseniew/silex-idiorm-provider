@@ -18,6 +18,7 @@ class IdiormService
         if (!isset($this->tables[$tableName])) {
             $this->tables[$tableName] = \ORM::for_table($tableName, $this->connectionName);
         }
+
         return $this->tables[$tableName];
     }
 
@@ -45,11 +46,10 @@ class IdiormService
     {
         return \ORM::get_query_log($this->connectionName);
     }
-        
+
     public static function clear_cache()
     {
         return \ORM::clear_cache();
     }
 
 }
-
