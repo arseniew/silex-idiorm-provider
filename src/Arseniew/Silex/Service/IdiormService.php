@@ -27,7 +27,7 @@ class IdiormService
         return \ORM::get_db($connectionName);
     }
 
-    public static function raw_execute($query, $parameters = array())
+    public function raw_execute($query, $parameters = array())
     {
         return \ORM::raw_execute($query, $parameters = array(), $this->connectionName);
     }
@@ -37,12 +37,12 @@ class IdiormService
         return \ORM::get_last_statement();
     }
 
-    public static function get_last_query()
+    public function get_last_query()
     {
         return \ORM::get_last_query($this->connectionName);
     }
 
-    public static function get_query_log()
+    public function get_query_log()
     {
         return \ORM::get_query_log($this->connectionName);
     }
