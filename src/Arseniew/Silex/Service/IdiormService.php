@@ -6,7 +6,6 @@ class IdiormService
 {
 
     protected $connectionName;
-    protected $tables = array();
 
     public function __construct($connectionName)
     {
@@ -15,11 +14,7 @@ class IdiormService
 
     public function for_table($tableName)
     {
-        if (!isset($this->tables[$tableName])) {
-            $this->tables[$tableName] = \ORM::for_table($tableName, $this->connectionName);
-        }
-
-        return $this->tables[$tableName];
+        return \ORM::for_table($tableName, $this->connectionName);
     }
 
     public static function get_db($connectionName)
